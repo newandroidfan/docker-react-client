@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t nadeemansarihome/react-client -f Dockerfile.dev .
+
+scripts:
+  - docker run -e CI=true nadeemansarihome/react-client npm run test 
